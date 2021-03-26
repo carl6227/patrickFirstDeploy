@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-sm"> <button id="scrollDown" class="btn btn-dark" style="float:right">scroll down</button></div>
+
+
+        <div class="col-sm-4">
+            <form>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="radioBtn">
+                    <label class="form-check-label" for="exampleCheck1">I Accept</label>
+                </div>
+                <button type="button" id="submitBtn" class="btn btn-primary " disabled>Submit</button>
+            </form>
+        </div>
+        <br><br>
+        <div class="col-sm-6" id="tableWrapper">
+            <table class="table-bordered">
+                <tr class="bg-success trAlternate">
+                    <th>Firstname</th>
+                    <th>Lastname </th>
+                </tr>
+                <tr>
+                    <td>Patrick Carl</td>
+                    <td>Glinogo</td>
+                </tr>
+                <tr class="bg-success trAlternate">
+                    <td>Alex</td>
+                    <td>Monuz</td>
+                </tr>
+            </table>
+            <br>
+            <button type="button" id="alternateBtn" class="btn btn-warning">Change Alternate color</button>
+        </div>
+        <br><br>
+        <div class="col-sm-4">
+            <div class="form-group">
+
+                <input type="text" class="form-control" maxlength="15" id="countText" placeholder="Input Characters">
+                <p id="message"><span id="counter">15</span> character(s) remaining.</p>
+                <h5 id="monitor" style="color: blue;"> </h5>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <button type="button" id="addOpt" class="btn btn-primary">Add Option</button>
+            <select id="dropDown" class="btn btn-warning">
+                <option value="">DropDown</option>
+            </select>
+            <button type="button" id="removeOpt" class="btn btn-danger">Remove Option</button>
+        </div>
+        <br><br>
+        <div class="col-sm-4">
+            <input class="btn btn-danger" id="changeBtn" type="button" value="Ayaw kol ">
+        </div>
+        <br><br>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-4" style="margin-left: 10px;float: right;">
+                    <h5>Input amount:</h5>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group" style="margin-left: -40px;">
+                        <input class="form-control" id="restrictionInput" aria-describedby="emailHelp"
+                            placeholder="Enter numbers">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="col-sm">
+            <div class="col-sm">
+                <p> <span id="animatePara" style="border: solid 1px red;">Jquery</span> </p>
+            </div>
+
+            <button type="button" id="animateParaBtn" class="btn btn-primary">Animate paragraph</button>
+        </div>
+        <br><br>
+        <div class="col-m">
+            <div class="row">
+                <div class="col-sm-6" style="margin-bottom: 500px;">
+                    <center>
+                        <div id="box"
+                            style=" box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;background-image: linear-gradient(to right, #ff512f,#dd2476);border-radius:20px;height:100px;width:100px;position:relative;">
+                        </div>
+                    </center>
+                </div>
+                <div class="col-sm-6">
+                    <button type="button" style="border-radius:20px" id="left" class="btn btn-primary"> left</button>
+                    <button type="button" style="border-radius:20px" id="right" class="btn btn-primary"> right</button>
+                    <button type="button" style="margin-top:-100px;margin-left:-90px; border-radius:20px" id="top"
+                        class="btn btn-primary">top</button>
+                    <button type="button" style="margin-top:100px;margin-left:-60px; border-radius: 20px;" id="down"
+                        class="btn btn-primary">down</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm"> <button id="scrollUp" class="btn btn-dark" style="float:right">scroll up</button></div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            count = 0
+            $("#radioBtn").on("change", function () {
+                count++
+                if (count % 2 == 0) {
+                    document.getElementById("radioBtn").checked = false
+                    $("#submitBtn").attr('disabled', 'disabled')
+                } else {
+
+                    $("#submitBtn").removeAttr("disabled")
+
+                }
+            })
+            $("#alternateBtn").on("click", function () {
+                $(".trAlternate").removeClass("bg-success")
+                $(".trAlternate").addClass("bg-warning")
+
+            })
+            $("#countText").on("keyup", function () {
+
+                $("#counter").text(15 - $(this).val().length)
+                $("#monitor").text($(this).val())
+
+            })
+
+            $("#addOpt").on("click", function () {
+                $("#dropDown").append('<option>' + $("#countText").val() + '</option>')
+                $("#countText").val("")
+                $("#monitor").text("")
+            })
+            $("#removeOpt").on("click", function () {
+                $("option:selected").remove()
+            })
+
+            $("#changeBtn").on("click", function () {
+                count++
+                if (count % 2 == 0) {
+                    $(this).val("Ayaw kol")
+                    $(this).removeClass("btn-success")
+                    $(this).addClass("btn-danger")
+
+                } else {
+                    $(this).val("Bata pa ko kol")
+                    $(this).removeClass("btn-danger")
+                    $(this).addClass("btn-success")
+
+                }
+            })
+            $("#restrictionInput").on("keyup", function () {
+                if ($(this).val().match(/^[0-9]+$/) == null) {
+                    $(this).val($(this).val().substring(0, $(this).val().length - 1))
+                }
+            })
+            $("#animateParaBtn").on("click", function () {
+                $("#animatePara").animate({
+                    width: "70%",
+                    opacity: "0.4",
+                    marginLeft: "0.6in",
+                    fontSize: "3em",
+                    borderWidth: "10px"
+                }, 5000)
+            })
+            $("#right").on("click", function () {
+                $("#box").animate({
+                    'left': '+=200px'
+                })
+            })
+            $("#left").on("click", function () {
+                $("#box").animate({
+                    'left': '-=200px'
+                })
+            })
+            $("#top").on("click", function () {
+                $("#box").animate({
+                    'top': "-=200px"
+                })
+            })
+            $("#down").on("click", function () {
+                $("#box").animate({
+                    'top': "+=200px"
+                })
+            })
+            $("#scrollDown").on("click", function () {
+
+                $("html, body").animate({
+                    scrollTop: '1500px'
+                }) // $("#box").animate({ 'top': "+=250px" })
+            })
+            $("#scrollUp").on("click", function () {
+                $("html, body").animate({
+                    scrollTop: '0px'
+                })
+
+            })
+        })
+    </script>
+</body>
+
+</html>
